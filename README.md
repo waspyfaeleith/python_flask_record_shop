@@ -3,7 +3,7 @@ IN PROGRESS - Record Store web app implemented in Python with Flask, connecting 
 
 You will need to have python3 and PostgreSQL installed.
 
-You will also need to install psycopg2 (the Python PostgreSQL driver) and Flask(a lightweigh web framework for Python)
+You will also need to install psycopg2 (the Python PostgreSQL driver) and Flask(a lightweight web framework for Python)
 
 To install:
 
