@@ -24,13 +24,13 @@ class AlbumRepository(object):
         return album
 
     def save(self, album):
-        sql = "INSERT INTO albums (title, artist_id, quantity) VALUES (%s) RETURNING id"
+        sql = "INSERT INTO albums (title, artist_id, quantity) VALUES (%s, %s, %s) RETURNING id"
         results = SqlRunner.run(sql, (album.title, album.artist_id, album.quantity))
         id = results[0]['id']
         album.id = id
         return album
 
-    def update(self, artist):
+    def update(self, album):
         sql = "UPDATE albums SET (title, artist_id, quantity) = (%s, %s, %s) WHERE id = %s"
         SqlRunner.run(sql,(album.title, album.artist_id, album.quantity, album.id))
 
