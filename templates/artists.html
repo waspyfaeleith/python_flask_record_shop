@@ -1,0 +1,18 @@
+{% block body %}
+<h2>Artists</h2>
+<table>
+  <thead>
+    <th>Name</th>
+  </thead>
+  <tbody>
+    {% for artist in artists %}
+      <tr>
+        <td>{{artist.name}}</td>
+      </tr>
+    {% endfor %}
+  </tbody>
+</table>
+
+<a href="/new-artist">New Artist</a>
+
+{% endblock %}

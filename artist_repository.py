@@ -1,6 +1,7 @@
 import psycopg2
 import psycopg2.extras as ext
 from artist import Artist
+
 from sql_runner import SqlRunner
 
 class ArtistRepository(object):
