@@ -20,7 +20,7 @@ class TestAlbum(unittest.TestCase):
         album = Album("Back in Black", acdc, 10)
         self.assertEqual(10, album.quantity)
 
-    def test_artist_title_changed(self):
+    def test_album_title_changed(self):
         acdc = Artist("AC/DC")
         album = Album("Back in Black", acdc, 10)
         album.title = "Highway to Hell"
