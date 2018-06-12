@@ -3,8 +3,16 @@
 class Artist(object):
 
     def __init__(self, name, id = None):
+        self.repo = ArtistRepository()
         self.id = id
         self.name = name
+
+    def save(self):
+        #repo = ArtistRepository()
+        self.repo.save(self)
+
+    def update(self):
+        self.repo.update(self)
 
     @classmethod
     def all(self):
@@ -12,8 +20,16 @@ class Artist(object):
         artists = repo.select_all()
         return artists
 
-    def save(self):
+    @classmethod
+    def find(self,id):
         repo = ArtistRepository()
-        repo.save(self)
+        artist = repo.select(id)
+        return artist
+
+    @classmethod
+    def delete(self, id):
+        repo = ArtistRepository()
+        repo.delete(id)
+
 
 from artist_repository import ArtistRepository
