@@ -1,5 +1,3 @@
-
-
 class Artist(object):
 
     def __init__(self, name, id = None):
@@ -8,7 +6,6 @@ class Artist(object):
         self.name = name
 
     def save(self):
-        #repo = ArtistRepository()
         self.repo.save(self)
 
     def update(self):

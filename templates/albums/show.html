@@ -1,0 +1,9 @@
+{% block body %}
+
+<h2>{{album.title}}</h2>
+<p>Artist: <!-- TODO: GET ARTIST NAME --></p>
+<p>Quantity: {{album.quantity}}
+
+<a href="/albums/{{album.id}}/edit">Edit</a>
+
+{% endblock %}
