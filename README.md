@@ -23,3 +23,10 @@ To set up the tables:
 ```
 $ psql -d record_store -f record_store.sql
 ```
+
+To run the app:
+```
+$ FLASK_APP=app.py flask run
+```
+
+To see the app running open a web browser and go to `http://localhost:5000/`
