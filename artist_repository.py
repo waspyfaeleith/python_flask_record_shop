@@ -4,7 +4,7 @@ from artist import Artist
 from sql_runner import SqlRunner
 
 class ArtistRepository(object):
-    
+
     def select_all(self):
         artists = []
         sql = "SELECT * FROM artists"
@@ -23,7 +23,6 @@ class ArtistRepository(object):
         return artist
 
     def save(self, artist):
-        conn = None
         sql = "INSERT INTO artists (name) VALUES (%s) RETURNING id"
         results = SqlRunner.run(sql, (artist.name,))
         id = results[0]['id']
@@ -31,12 +30,9 @@ class ArtistRepository(object):
         return artist
 
     def update(self, artist):
-        updated_rows = 0
-        print("ID: %d Changing to Name: %s" % (artist.id, artist.name))
         sql = "UPDATE artists SET (name) = (%s) WHERE id = %s"
         SqlRunner.run(sql,(artist.name, artist.id))
 
     def delete(self, id):
-        rows_deleted = 0
         sql = "DELETE FROM artists WHERE id = %s"
         SqlRunner.run(sql,(id,)).count
