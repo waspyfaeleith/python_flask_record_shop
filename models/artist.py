@@ -4,15 +4,31 @@ sys.path.append("..")
 class Artist(object):
 
     def __init__(self, name, id = None):
-        self.repo = ArtistRepository()
-        self.id = id
-        self.name = name
+        self._repo = ArtistRepository()
+        self._id = id
+        self._name = name
+
+    @property
+    def name(self):
+        return self._name
+
+    @property
+    def id(self):
+        return self._id
+
+    @id.setter
+    def id(self, value):
+        self._id = value
+
+    @name.setter
+    def name(self, value):
+        self._name = value
 
     def save(self):
-        self.repo.save(self)
+        self._repo.save(self)
 
     def update(self):
-        self.repo.update(self)
+        self._repo.update(self)
 
     def albums(self):
         from repositories.album_repository import AlbumRepository
