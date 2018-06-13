@@ -1,6 +1,9 @@
 {% extends "layout.html" %}
 {% block body %}
+
 <h2>Artists</h2>
+<br>
+<a href="/artists/new">New Artist</a>
 <br>
 <table class="mytable">
   <thead>
@@ -22,8 +25,5 @@
     {% endfor %}
   </tbody>
 </table>
-
-<br>
-<a href="/artists/new">New Artist</a>
 
 {% endblock %}

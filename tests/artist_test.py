@@ -16,6 +16,5 @@ class TestArtist(unittest.TestCase):
         artist.name = "Iron Maiden"
         self.assertEqual("Iron Maiden", artist.name)
 
-
 if __name__ == '__main__':
     unittest.main()

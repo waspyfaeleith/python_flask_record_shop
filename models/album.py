@@ -20,6 +20,14 @@ class Album(object):
         artist = repo.select(self.artist_id)
         return artist
 
+    def stock_level(self):
+        if (self.quantity >= 10):
+            return "high"
+        elif (self.quantity < 5):
+            return "low"
+        else:
+            return "medium"
+
     @classmethod
     def all(self):
         repo = AlbumRepository()

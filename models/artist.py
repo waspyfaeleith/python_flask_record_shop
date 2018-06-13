@@ -36,6 +36,4 @@ class Artist(object):
         repo = ArtistRepository()
         repo.delete(id)
 
-
 from repositories.artist_repository import ArtistRepository
-from repositories.album_repository import AlbumRepository

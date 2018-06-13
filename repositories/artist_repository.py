@@ -2,7 +2,6 @@ import sys
 sys.path.append("..")
 
 from models.artist import Artist
-
 from db.sql_runner import SqlRunner
 
 class ArtistRepository(object):

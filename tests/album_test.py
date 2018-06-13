@@ -16,7 +16,7 @@ class TestAlbum(unittest.TestCase):
     def test_album_artist_is_set(self):
         acdc = Artist("AC/DC")
         album = Album("Back in Black", acdc, 10)
-        self.assertEqual("AC/DC", album.artist.name)
+        self.assertEqual("AC/DC", album.artist().name)
 
     def test_album_quantity_is_set(self):
         acdc = Artist("AC/DC")
@@ -31,10 +31,10 @@ class TestAlbum(unittest.TestCase):
 
     def test_album_artist_is_changed(self):
         acdc = Artist("AC/DC")
-        album = Album("Back in Black", acdc, 10)
         iron_maiden = Artist("Iron Maiden")
+        album = Album("Back in Black", acdc, 10)
         album.artist = iron_maiden
-        self.assertEqual("Iron Maiden", album.artist.name)
+        self.assertEqual("Iron Maiden", album.artist().name)
 
     def test_album_quantity_is_changed(self):
         acdc = Artist("AC/DC")
@@ -42,6 +42,20 @@ class TestAlbum(unittest.TestCase):
         album.quantity = 9
         self.assertEqual(9, album.quantity)
 
+    def test_album_quantity_is_high(self):
+        acdc = Artist("AC/DC")
+        album = Album("Back in Black", acdc, 10)
+        self.assertEqual("high", album.stock_level())
+
+    def test_album_quantity_is_medium(self):
+        acdc = Artist("AC/DC")
+        album = Album("Back in Black", acdc, 7)
+        self.assertEqual("medium", album.stock_level())
+
+    def test_album_quantity_is_low(self):
+        acdc = Artist("AC/DC")
+        album = Album("Back in Black", acdc, 4)
+        self.assertEqual("low", album.stock_level())
 
 if __name__ == '__main__':
     unittest.main()

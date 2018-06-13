@@ -1,6 +1,9 @@
 {% extends "layout.html" %}
 {% block body %}
+
 <h2>Albums</h2>
+<br>
+<a href="/albums/new">New Album</a>
 <br>
 <table class="mytable">
   <thead>
@@ -15,7 +18,7 @@
       <tr>
         <td>{{album.title}}</td>
         <td>{{album.artist().name}}</td>
-        <td>{{album.quantity}}</td>
+        <td class="{{album.stock_level()}}">{{album.quantity}}</td>
         <td><a href="/albums/{{album.id}}">Details<a></td>
         <td>
           <form action="/albums/{{album.id}}/delete" method="POST">
@@ -26,8 +29,5 @@
     {% endfor %}
   </tbody>
 </table>
-
-<br>
-<a href="/albums/new">New Album</a>
 
 {% endblock %}

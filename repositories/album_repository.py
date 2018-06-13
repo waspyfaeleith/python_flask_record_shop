@@ -1,4 +1,3 @@
-# from artist import Artist
 import sys
 sys.path.append("..")
 
