@@ -15,6 +15,7 @@ class Artist(object):
         self.repo.update(self)
 
     def albums(self):
+        from repositories.album_repository import AlbumRepository
         repo = AlbumRepository()
         albums = repo.select_for_artist(self.id)
         return albums

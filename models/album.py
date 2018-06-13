@@ -16,6 +16,7 @@ class Album(object):
         self.repo.update(self)
 
     def artist(self):
+        from repositories.artist_repository import ArtistRepository
         repo = ArtistRepository()
         artist = repo.select(self.artist_id)
         return artist
@@ -46,4 +47,4 @@ class Album(object):
         repo.delete(id)
 
 from repositories.album_repository import AlbumRepository
-from repositories.artist_repository import ArtistRepository
+#from repositories.artist_repository import ArtistRepository
