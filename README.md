@@ -26,6 +26,12 @@ $ psql -d record_store -f record_store.sql
 
 To run the app:
 ```
+$ python3 app.py
+```
+
+OR
+
+```
 $ FLASK_APP=app.py flask run
 ```
 
