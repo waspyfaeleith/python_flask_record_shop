@@ -1,6 +1,5 @@
-from artist import Artist
-from artists_controller import artists_blueprint
-from albums_controller import albums_blueprint
+from controllers.artists_controller import artists_blueprint
+from controllers.albums_controller import albums_blueprint
 from flask import Flask, render_template, request, redirect
 
 app = Flask(__name__)

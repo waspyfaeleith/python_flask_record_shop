@@ -1,10 +1,12 @@
+{% extends "layout.html" %}
 {% block body %}
 <h2>Artists</h2>
 <br>
-<table>
+<table class="mytable">
   <thead>
     <th>Name</th>
     <th></th>
+    <th>
   </thead>
   <tbody>
     {% for artist in artists %}
