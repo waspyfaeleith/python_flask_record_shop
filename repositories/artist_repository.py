@@ -1,8 +1,9 @@
-import psycopg2
-import psycopg2.extras as ext
-from artist import Artist
+import sys
+sys.path.append("..")
 
-from sql_runner import SqlRunner
+from models.artist import Artist
+
+from db.sql_runner import SqlRunner
 
 class ArtistRepository(object):
 

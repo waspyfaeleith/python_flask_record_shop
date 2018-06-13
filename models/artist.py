@@ -1,3 +1,6 @@
+import sys
+sys.path.append("..")
+
 class Artist(object):
 
     def __init__(self, name, id = None):
@@ -34,5 +37,5 @@ class Artist(object):
         repo.delete(id)
 
 
-from artist_repository import ArtistRepository
-from album_repository import AlbumRepository
+from repositories.artist_repository import ArtistRepository
+from repositories.album_repository import AlbumRepository

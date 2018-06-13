@@ -1,1 +1,1 @@
-for file in *test.py; do python $file; done
+for file in tests/*test.py; do python $file; done

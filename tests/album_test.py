@@ -1,7 +1,10 @@
+import sys
+sys.path.append("..")
+
 import unittest
 
-from album import Album
-from artist import Artist
+from models.album import Album
+from models.artist import Artist
 
 class TestAlbum(unittest.TestCase):
 

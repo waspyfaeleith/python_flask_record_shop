@@ -1,4 +1,6 @@
-from artist import Artist
+import sys
+sys.path.append("..")
+from models.artist import Artist
 from flask import Flask, render_template, request, redirect
 from flask import Blueprint
 

@@ -1,6 +1,9 @@
+import sys
+sys.path.append("..")
+
 import unittest
 
-from artist import Artist
+from models.artist import Artist
 
 class TestArtist(unittest.TestCase):
 
@@ -11,7 +14,7 @@ class TestArtist(unittest.TestCase):
     def test_artist_name_changed(self):
         artist = Artist("AC/DC")
         artist.name = "Iron Maiden"
-        self.assertEqual("Iron Maiden", artist.name)    
+        self.assertEqual("Iron Maiden", artist.name)
 
 
 if __name__ == '__main__':

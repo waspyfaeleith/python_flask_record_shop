@@ -1,5 +1,8 @@
 # from artist import Artist
-from sql_runner import SqlRunner
+import sys
+sys.path.append("..")
+
+from db.sql_runner import SqlRunner
 
 class AlbumRepository(object):
 
@@ -44,4 +47,4 @@ class AlbumRepository(object):
         sql = "DELETE FROM albums WHERE id = %s"
         SqlRunner.run(sql,(id,)).count
 
-from album import Album
+from models.album import Album
