@@ -1,5 +1,6 @@
-# python_flask_record_shop
-IN PROGRESS - Record Store web app implemented in Python with Flask, connecting to a PostgreSQL database
+# Python Fask Record Shop
+
+Record Store web app implemented in Python with Flask, connecting to a PostgreSQL database
 
 You will need to have python3 and PostgreSQL installed.
 
