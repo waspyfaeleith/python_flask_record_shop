@@ -1,7 +1,4 @@
-# import psycopg2
-# import psycopg2.extras as ext
-from artist import Artist
-from album import Album
+# from artist import Artist
 from sql_runner import SqlRunner
 
 class AlbumRepository(object):
@@ -23,6 +20,15 @@ class AlbumRepository(object):
         album = Album(row['title'], row['artist_id'], row['quantity'], row['id'])
         return album
 
+    def select_for_artist(self, id):
+        albums = []
+        sql = "SELECT * FROM albums where artist_id = %s"
+        results = SqlRunner.run(sql,(id,))
+        for row in results:
+            album = Album(row['title'], row['artist_id'], row['quantity'], row['id'])
+            albums.append(album)
+        return albums
+
     def save(self, album):
         sql = "INSERT INTO albums (title, artist_id, quantity) VALUES (%s, %s, %s) RETURNING id"
         results = SqlRunner.run(sql, (album.title, album.artist_id, album.quantity))
@@ -37,3 +43,5 @@ class AlbumRepository(object):
     def delete(self, id):
         sql = "DELETE FROM albums WHERE id = %s"
         SqlRunner.run(sql,(id,)).count
+
+from album import Album

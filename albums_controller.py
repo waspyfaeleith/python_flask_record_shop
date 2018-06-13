@@ -1,4 +1,5 @@
 from album import Album
+from artist import Artist
 from flask import Flask, render_template, request, redirect
 from flask import Blueprint
 
@@ -11,7 +12,8 @@ def albums():
 
 @albums_blueprint.route("/albums/new", methods=['GET'])
 def create_album():
-    return render_template('albums/create.html')
+    artists = Artist.all()
+    return render_template('albums/create.html', artists = artists)
 
 @albums_blueprint.route("/albums", methods=['POST'])
 def new_album():
@@ -30,7 +32,8 @@ def show_album(id):
 @albums_blueprint.route("/albums/<id>/edit", methods=['GET'])
 def edit_album(id):
     album = Album.find(id)
-    return render_template('albums/edit.html', album = album)
+    artists = Artist.all()
+    return render_template('albums/edit.html', album = album, artists = artists)
 
 @albums_blueprint.route("/albums/<id>", methods=['POST'])
 def update_album(id):

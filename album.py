@@ -12,6 +12,11 @@ class Album(object):
     def update(self):
         self.repo.update(self)
 
+    def artist(self):
+        repo = ArtistRepository()
+        artist = repo.select(self.artist_id)
+        return artist
+
     @classmethod
     def all(self):
         repo = AlbumRepository()
@@ -21,7 +26,7 @@ class Album(object):
     @classmethod
     def find(self,id):
         repo = AlbumRepository()
-        album = repo.select_all()
+        album = repo.select(id)
         return album
 
     @classmethod
@@ -30,3 +35,4 @@ class Album(object):
         repo.delete(id)
 
 from album_repository import AlbumRepository
+from artist_repository import ArtistRepository
