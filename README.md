@@ -1,4 +1,4 @@
-# Python Fask Record Shop
+# Python Flask Record Shop
 
 Record Store web app implemented in Python with Flask, connecting to a PostgreSQL database
 
