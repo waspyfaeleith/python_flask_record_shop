@@ -15,8 +15,8 @@ class TestAlbum(unittest.TestCase):
 
     def test_album_artist_is_set(self):
         acdc = Artist("AC/DC", 100)
-        album = Album("Back in Black", acdc.id, 10)
-        self.assertEqual(acdc.id, album.artist_id)
+        album = Album("Back in Black", acdc, 10)
+        self.assertEqual(acdc.name, album.artist.name)
 
     def test_album_quantity_is_set(self):
         acdc = Artist("AC/DC")
@@ -32,9 +32,9 @@ class TestAlbum(unittest.TestCase):
     def test_album_artist_is_changed(self):
         acdc = Artist("AC/DC", 1)
         iron_maiden = Artist("Iron Maiden", 2)
-        album = Album("Back in Black", acdc.id, 10)
-        album.artist_id = iron_maiden.id
-        self.assertEqual(iron_maiden.id, album.artist_id)
+        album = Album("Back in Black", acdc, 10)
+        album.artist = iron_maiden
+        self.assertEqual(iron_maiden.name, album.artist.name)
 
     def test_album_quantity_is_changed(self):
         acdc = Artist("AC/DC")
