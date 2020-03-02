@@ -2,12 +2,11 @@ import sys
 sys.path.append("..")
 
 class Album(object):
-    def __init__(self, title, artist_id, quantity, id = None):
+    def __init__(self, title, artist, quantity, id = None):
         self._title = title
-        self._artist_id = artist_id
+        self._artist = artist
         self._quantity = quantity
         self._id = id
-        self._repo = AlbumRepository()
 
     @property
     def title(self):
@@ -18,8 +17,8 @@ class Album(object):
         return self._id
 
     @property
-    def artist_id(self):
-        return self._artist_id
+    def artist(self):
+        return self._artist
 
     @property
     def quantity(self):
@@ -33,25 +32,13 @@ class Album(object):
     def title(self, value):
         self._title = value
 
-    @artist_id.setter
-    def artist_id(self, value):
-        self._artist_id = value
+    @artist.setter
+    def artist(self, value):
+        self._artist = value
 
     @quantity.setter
     def quantity(self, value):
         self._quantity = value
-
-    def save(self):
-        self._repo.save(self)
-
-    def update(self):
-        self._repo.update(self)
-
-    def artist(self):
-        from repositories.artist_repository import ArtistRepository
-        repo = ArtistRepository()
-        artist = repo.select(self.artist_id)
-        return artist
 
     def stock_level(self):
         if (self._quantity >= 10):
@@ -60,22 +47,3 @@ class Album(object):
             return "low"
         else:
             return "medium"
-
-    @classmethod
-    def all(self):
-        repo = AlbumRepository()
-        albums = repo.select_all()
-        return albums
-
-    @classmethod
-    def find(self,id):
-        repo = AlbumRepository()
-        album = repo.select(id)
-        return album
-
-    @classmethod
-    def delete(self, id):
-        repo = AlbumRepository()
-        repo.delete(id)
-
-from repositories.album_repository import AlbumRepository

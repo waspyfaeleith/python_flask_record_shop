@@ -17,7 +17,7 @@
     {% for album in albums %}
       <tr>
         <td>{{album.title}}</td>
-        <td>{{album.artist().name}}</td>
+        <td>{{album.artist.name}}</td>
         <td class="{{album.stock_level()}}">{{album.quantity}}</td>
         <td><a href="/albums/{{album.id}}">Details<a></td>
         <td>
